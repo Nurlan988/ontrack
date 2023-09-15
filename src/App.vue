@@ -4,6 +4,7 @@
     <TheTimeline
       v-show="currentPage === PAGE_TIMELINE"
       :timeline-items="timelineItems"
+      :activity-select-options="activitySelectOptions"
     />
     <TheActivities
       v-show="currentPage === PAGE_ACTIVITIES"
@@ -18,7 +19,11 @@
 import { ref } from "vue";
 
 import { PAGE_TIMELINE, PAGE_ACTIVITIES, PAGE_PROGRESS } from "./constants";
-import { normalizePageHash, generateTimelineItems } from "./functions";
+import {
+  normalizePageHash,
+  generateTimelineItems,
+  generateActivitySelectOptions,
+} from "./functions";
 
 import TheHeader from "./components/header/TheHeader.vue";
 import TheNav from "./components/TheNav.vue";
@@ -35,4 +40,6 @@ function goTo(page) {
 const timelineItems = generateTimelineItems();
 
 const activities = ["Coding", "Reading", "Traning"];
+
+const activitySelectOptions = generateActivitySelectOptions(activities);
 </script>

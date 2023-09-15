@@ -52,3 +52,9 @@ const emit = defineEmits({
 
 const isNotSelected = computed(() => isUndefinedOrNull(props.selected));
 </script>
+
+<style scoped>
+select:focus-visible {
+  outline: none;
+}
+</style>
